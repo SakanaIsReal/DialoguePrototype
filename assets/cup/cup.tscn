@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=3 uid="uid://lh0xtwnviix4"]
+
+[ext_resource type="Texture2D" uid="uid://m1botilanohv" path="res://assets/player/assets/mug.png" id="1_5ry06"]
+[ext_resource type="Script" path="res://assets/cup/cup.gd" id="1_n6rmp"]
+[ext_resource type="PackedScene" uid="uid://wm3bue6ecdng" path="res://module/dialogue/dialogue_area.tscn" id="2_killo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_slxrg"]
+radius = 13.0
+height = 28.0
+
+[node name="Cup" type="CharacterBody2D"]
+collision_layer = 4
+script = ExtResource("1_n6rmp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5ry06")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_slxrg")
+
+[node name="dialogueArea" parent="." instance=ExtResource("2_killo")]

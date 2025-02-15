@@ -9,7 +9,8 @@ var scene_text = {}
 
 func _ready():
 	#background.visible = false
-	scene_text = load_scene_text()
+	if scene_text_file != null:
+		scene_text = load_scene_text()
 	#print(scene_text)
 	#SignalBus.connect("display_dialogue", on_display_dialogue)
 
@@ -22,6 +23,11 @@ func load_scene_text():
 	var file = FileAccess.open(scene_text_file, FileAccess.READ)
 	if FileAccess.file_exists(scene_text_file):
 		return JSON.parse_string(file.get_as_text())
+		
+func load_scene_text_parent(scene_text_file_parent):
+	var file = FileAccess.open(scene_text_file_parent, FileAccess.READ)
+	if FileAccess.file_exists(scene_text_file_parent):
+		scene_text = JSON.parse_string(file.get_as_text())
 
 func _on_area_entered(_area):
 	area_active = true

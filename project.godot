@@ -23,6 +23,7 @@ DialogueManager="*res://singletons/DialogueManager.gd"
 
 window/size/viewport_width=640
 window/size/viewport_height=360
+window/size/mode=3
 window/size/always_on_top=true
 window/stretch/mode="canvas_items"
 
@@ -77,6 +78,7 @@ secondary={
 
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Dialogue"
+2d_physics/layer_3="NPC"
 
 [rendering]
 

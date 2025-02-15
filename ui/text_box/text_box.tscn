@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://ljradgvcwwup"]
+[gd_scene load_steps=13 format=3 uid="uid://ljradgvcwwup"]
 
 [ext_resource type="Script" path="res://text_box.gd" id="1_0pg6w"]
 [ext_resource type="Texture2D" uid="uid://bhq3v1nrii27p" path="res://ui/text_box/dialogue_box.png" id="1_75h75"]
@@ -43,8 +43,11 @@ animations = [{
 bg_color = Color(0, 0, 0, 0.145098)
 border_color = Color(0, 0, 0, 0.533333)
 
+[sub_resource type="LabelSettings" id="LabelSettings_e805f"]
+line_spacing = 0.8
+font_color = Color(0, 0, 0, 1)
+
 [node name="TextBox" type="MarginContainer"]
-visible = false
 offset_right = 258.0
 offset_bottom = 92.0
 script = ExtResource("1_0pg6w")
@@ -124,6 +127,7 @@ theme_override_font_sizes/font_size = 8
 text = "TITLE"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+clip_contents = true
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 theme_override_constants/separation = 0
@@ -131,14 +135,15 @@ theme_override_constants/separation = 0
 [node name="Text" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.129412, 0.129412, 0.137255, 1)
-theme_override_constants/line_spacing = 0
 theme_override_fonts/font = ExtResource("4_h06k3")
 theme_override_font_sizes/font_size = 16
 text = "Content of the text
 Content of the text
 Content of the text
 Content of the text"
+label_settings = SubResource("LabelSettings_e805f")
 vertical_alignment = 1
+max_lines_visible = 4
 
 [node name="LetterDisplayTimer" type="Timer" parent="."]
 one_shot = true

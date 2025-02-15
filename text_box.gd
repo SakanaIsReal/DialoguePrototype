@@ -72,7 +72,7 @@ func display_text(dialogue: Dictionary): # This take JSON content to the functio
 		#await resized # wait for y resize
 		#custom_minimum_size.y = size.y
 		#await resized
-	# Positioning in scene
+	# Positioning in scenee
 	
 	size.x = MAX_WIDTH
 	

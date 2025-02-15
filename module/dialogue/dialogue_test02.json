@@ -1,0 +1,19 @@
+{
+  "scenes": [
+    {
+      "id": "wakeup_intro",
+      "dialogue": [
+        {
+          "character": "smolary",
+          "text": "Where am I?",
+          "expression": "sad"
+        },
+        {
+          "character": "cup",
+          "text": "Didn't see? We in a trouble now.",
+          "expression": "sad"
+        }
+      ]
+    }
+  ]
+}

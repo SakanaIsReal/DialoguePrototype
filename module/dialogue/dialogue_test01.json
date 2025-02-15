@@ -1,0 +1,49 @@
+{
+  "scenes": [
+	{
+	  "id": "wakeup_intro",
+	  "dialogue": [
+		{
+		  "character": "Smolary",
+		  "text": "Where am I?",
+		  "expression": "default"
+		},
+		{
+		  "character": "Cup",
+		  "text": "Well, you're in my world now. And no, it's not a dream. Get up!",
+		  "expression": "sad"
+		},
+		{
+		  "character": "Smolary",
+		  "text": "But... How do I get out? This place is strange.",
+		  "expression": "default"
+		},
+		{
+		  "character": "Cup",
+		  "text": "Simple. You want to leave? You’ll need to make me a cup of coffee first.",
+		  "expression": "smile"
+		},
+		{
+		  "character": "Smolary",
+		  "text": "Coffee? But I don’t know how to make coffee...",
+		  "expression": "sad"
+		},
+		{
+		  "character": "Cup",
+		  "text": "Find the coffee beans, the recipe, and the brewer, and maybe I’ll think about letting you out. I’ll guide you, but don’t take too long.",
+		  "expression": "smile"
+		},
+		{
+		  "character": "Smolary",
+		  "text": "That sounds... complicated.",
+		  "expression": "default"
+		},
+		{
+		  "character": "Cup",
+		  "text": "I’m floating in the air, do I look like I care about your excuses? Get moving, Smolary!",
+		  "expression": "sad"
+		}
+	  ]
+	}
+  ]
+}
