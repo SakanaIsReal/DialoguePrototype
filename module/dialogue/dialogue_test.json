@@ -1,0 +1,28 @@
+{
+  "scenes": [
+	{
+	  "id": "wakeup_intro",
+	  "music": "morning_theme.mp3",
+	  "dialogue": [
+		{
+		  "character": "Smolary",
+		  "text": "Where am I?",
+		  "expression": "default",
+		  "next": "player_response"
+		},
+		{
+		  "character": "Cup",
+		  "text": "Uh... I forgot.",
+		  "expression": "sad",
+		  "next": "yuki_reaction"
+		},
+		{
+		  "character": "Yuki",
+		  "text": "What?! You better copy mine before class starts.",
+		  "expression": "annoyed",
+		  "next": null
+		}
+	  ]
+	}
+  ]
+}

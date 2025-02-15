@@ -1,0 +1,146 @@
+[gd_scene load_steps=12 format=3 uid="uid://ljradgvcwwup"]
+
+[ext_resource type="Script" path="res://text_box.gd" id="1_0pg6w"]
+[ext_resource type="Texture2D" uid="uid://bhq3v1nrii27p" path="res://ui/text_box/dialogue_box.png" id="1_75h75"]
+[ext_resource type="FontFile" uid="uid://7low5s2yd4h5" path="res://fonts/Fipps-Regular.otf" id="3_65wbw"]
+[ext_resource type="Texture2D" uid="uid://cgoydm8xue4de" path="res://ui/text_box/click_animation.png" id="3_hvika"]
+[ext_resource type="FontFile" uid="uid://djc2ljuv1ua30" path="res://fonts/Comicoro.ttf" id="4_h06k3"]
+[ext_resource type="Texture2D" uid="uid://cjpwts877ykq8" path="res://assets/protraits/protrait_placeholder.png" id="4_kq15q"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8suv7"]
+atlas = ExtResource("3_hvika")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mmh6o"]
+atlas = ExtResource("3_hvika")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44yyl"]
+atlas = ExtResource("3_hvika")
+region = Rect2(16, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1lpr2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8suv7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmh6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44yyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mmh6o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74enk"]
+bg_color = Color(0, 0, 0, 0.145098)
+border_color = Color(0, 0, 0, 0.533333)
+
+[node name="TextBox" type="MarginContainer"]
+visible = false
+offset_right = 258.0
+offset_bottom = 92.0
+script = ExtResource("1_0pg6w")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_75h75")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="Panel" type="Panel" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -10.0
+offset_top = -14.0
+offset_right = -10.0
+offset_bottom = -14.0
+grow_horizontal = 0
+grow_vertical = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="NinePatchRect/Panel"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_1lpr2")
+autoplay = "default"
+frame_progress = 0.364412
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 8
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="Panel" type="Panel" parent="MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_74enk")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MarginContainer/HBoxContainer/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="MarginContainer/MarginContainer/HBoxContainer/Panel/MarginContainer"]
+scale = Vector2(1.665, 1.665)
+texture = ExtResource("4_kq15q")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+theme_override_constants/separation = -4
+
+[node name="Title" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.129412, 0.129412, 0.137255, 1)
+theme_override_fonts/font = ExtResource("3_65wbw")
+theme_override_font_sizes/font_size = 8
+text = "TITLE"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="Text" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.129412, 0.129412, 0.137255, 1)
+theme_override_constants/line_spacing = 0
+theme_override_fonts/font = ExtResource("4_h06k3")
+theme_override_font_sizes/font_size = 16
+text = "Content of the text
+Content of the text
+Content of the text
+Content of the text"
+vertical_alignment = 1
+
+[node name="LetterDisplayTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="LetterDisplayTimer" to="." method="_on_letter_display_timer_timeout"]
